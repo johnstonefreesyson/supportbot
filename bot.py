@@ -69,8 +69,224 @@ if not SUPPORT_URL:
 
 GARDEN_URL = "https://chainaid.app/inurl/"
 
+# ─── Traduções ───────────────────────────────────────────────────────────────
+
+TRANSLATIONS = {
+    "pt": {
+        "lang_name": "Português",
+        "lang_flag": "🇧🇷",
+        "start_text": (
+            "*O que este bot pode fazer?*\n\n"
+            "*Bridge* Pix → DePix ou *Exchange* DePix → L-BTC na menor taxa possível "
+            "— sem depender de ninguém.\n\n"
+            "Nosso código é aberto. Clique em *Bridge* ou *Exchange* para saber mais e começar.\n\n"
+            "Se precisar de ajuda, entre em contato com o *Suporte*."
+        ),
+        "btn_bridge": "Bridge",
+        "btn_exchange": "Exchange",
+        "btn_support": "Suporte",
+        "btn_confirm": "✅ Confirmar – Prosseguir",
+        "btn_cancel": "❌ Cancelar",
+        "btn_back": "🔙 Voltar ao Início",
+        "btn_new_quote": "🔄 Nova cotação",
+        "bridge_title": (
+            "*Bridge – Pix → DePix*\n\n"
+            "Qual valor em *Pix* você deseja converter para *DePix*?\n\n"
+            "_(Responda com um número entre {min} e {max}, ex: `500`)_"
+        ),
+        "exchange_title": (
+            "*Exchange – DePix → L-BTC*\n\n"
+            "Qual valor em *DePix* você deseja trocar por *L-BTC*?\n\n"
+            "_(Responda com um número entre {min} e {max}, ex: `500`)_"
+        ),
+        "invalid_number": "❌ Por favor, digite um número válido (ex: `500`).",
+        "invalid_positive": "❌ Por favor, digite um número positivo válido.",
+        "min_amount": "❌ O valor mínimo é `{min:,.2f}`. Digite um valor maior.",
+        "max_amount": "❌ O valor máximo é `{max:,.2f}`. Digite um valor menor.",
+        "amount_too_low": (
+            "❌ Valor muito baixo após a taxa mínima de {fee_min} unidade(s).\n"
+            "Por favor, digite um valor maior."
+        ),
+        "quote_error": (
+            "⚠️ Não foi possível obter a cotação do BTC agora.\n"
+            "Por favor, tente novamente em instantes."
+        ),
+        "summary_title": "📊 *Resumo do {action}*",
+        "summary_amount": "Valor informado: `{amount:.2f}` {from_unit}",
+        "summary_fee": "Sua taxa (0.1% | mín. {fee_min}): `{fee:.2f}` {from_unit}",
+        "summary_net": "Valor repassado: `{net:.2f}` {from_unit}",
+        "summary_rate": "Taxa: _{rate}_",
+        "summary_receive": "Você receberá: ~`{receive:.8f}` {to_unit}",
+        "summary_time": "Tempo estimado: {time}",
+        "summary_validity": "⏳ Cotação válida por {validity:g} min.{stale}",
+        "summary_instructions": (
+            "Toque em *Confirmar* para prosseguir _(abre dentro do Telegram)_, "
+            "ou *Cancelar* para abortar."
+        ),
+        "stale_note": "\n⚠️ Preço atualizado há {age:.0f}s (fonte indisponível).",
+        "quote_expired": (
+            "⏰ *Cotação expirada.*\n\n"
+            "Os valores mudam com o mercado. Toque em *Nova cotação* para recalcular."
+        ),
+        "cancelled": "❌ Ordem cancelada.\n\nDigite /start para iniciar uma nova transação.",
+        "cancelled_cmd": "❌ Cancelado. Digite /start para iniciar uma nova transação.",
+        "use_buttons": "Use os botões da mensagem acima ou digite /start para recomeçar.",
+        "start_cmd": "Digite /start para começar.",
+        "stale_button": "Esta sessão expirou. Digite /start para recomeçar.",
+        "unknown": "Não entendi isso. Digite /start para começar.",
+        "rate_limit": "⏳ Muitas mensagens em pouco tempo. Aguarde um momento e tente de novo.",
+        "rate_limit_alert": "Muitas ações em pouco tempo. Aguarde um momento.",
+    },
+    "en": {
+        "lang_name": "English",
+        "lang_flag": "🇺🇸",
+        "start_text": (
+            "*What can this bot do?*\n\n"
+            "*Bridge* Pix → DePix or *Exchange* DePix → L-BTC at the lowest possible fee "
+            "— without relying on anyone.\n\n"
+            "Our code is open source. Click *Bridge* or *Exchange* to learn more and get started.\n\n"
+            "If you need help, contact *Support*."
+        ),
+        "btn_bridge": "Bridge",
+        "btn_exchange": "Exchange",
+        "btn_support": "Support",
+        "btn_confirm": "✅ Confirm – Proceed",
+        "btn_cancel": "❌ Cancel",
+        "btn_back": "🔙 Back to Start",
+        "btn_new_quote": "🔄 New Quote",
+        "bridge_title": (
+            "*Bridge – Pix → DePix*\n\n"
+            "What amount in *Pix* do you want to convert to *DePix*?\n\n"
+            "_(Reply with a number between {min} and {max}, e.g. `500`)_"
+        ),
+        "exchange_title": (
+            "*Exchange – DePix → L-BTC*\n\n"
+            "What amount in *DePix* do you want to exchange for *L-BTC*?\n\n"
+            "_(Reply with a number between {min} and {max}, e.g. `500`)_"
+        ),
+        "invalid_number": "❌ Please enter a valid number (e.g. `500`).",
+        "invalid_positive": "❌ Please enter a valid positive number.",
+        "min_amount": "❌ The minimum amount is `{min:,.2f}`. Enter a larger value.",
+        "max_amount": "❌ The maximum amount is `{max:,.2f}`. Enter a smaller value.",
+        "amount_too_low": (
+            "❌ Amount too low after the minimum fee of {fee_min} unit(s).\n"
+            "Please enter a larger value."
+        ),
+        "quote_error": (
+            "⚠️ Could not fetch the BTC quote right now.\n"
+            "Please try again in a moment."
+        ),
+        "summary_title": "📊 *{action} Summary*",
+        "summary_amount": "Amount entered: `{amount:.2f}` {from_unit}",
+        "summary_fee": "Your fee (0.1% | min. {fee_min}): `{fee:.2f}` {from_unit}",
+        "summary_net": "Amount forwarded: `{net:.2f}` {from_unit}",
+        "summary_rate": "Rate: _{rate}_",
+        "summary_receive": "You will receive: ~`{receive:.8f}` {to_unit}",
+        "summary_time": "Estimated time: {time}",
+        "summary_validity": "⏳ Quote valid for {validity:g} min.{stale}",
+        "summary_instructions": (
+            "Tap *Confirm* to proceed _(opens inside Telegram)_, "
+            "or *Cancel* to abort."
+        ),
+        "stale_note": "\n⚠️ Price updated {age:.0f}s ago (source unavailable).",
+        "quote_expired": (
+            "⏰ *Quote expired.*\n\n"
+            "Values change with the market. Tap *New Quote* to recalculate."
+        ),
+        "cancelled": "❌ Order cancelled.\n\nType /start to begin a new transaction.",
+        "cancelled_cmd": "❌ Cancelled. Type /start to begin a new transaction.",
+        "use_buttons": "Use the buttons on the message above or type /start to restart.",
+        "start_cmd": "Type /start to begin.",
+        "stale_button": "This session has expired. Type /start to restart.",
+        "unknown": "I didn't understand that. Type /start to begin.",
+        "rate_limit": "⏳ Too many messages in a short time. Please wait a moment and try again.",
+        "rate_limit_alert": "Too many actions in a short time. Please wait a moment.",
+    },
+    "es": {
+        "lang_name": "Español",
+        "lang_flag": "🇪🇸",
+        "start_text": (
+            "*¿Qué puede hacer este bot?*\n\n"
+            "*Bridge* Pix → DePix o *Exchange* DePix → L-BTC con la menor tasa posible "
+            "— sin depender de nadie.\n\n"
+            "Nuestro código es abierto. Haz clic en *Bridge* o *Exchange* para saber más y comenzar.\n\n"
+            "Si necesitas ayuda, contacta al *Soporte*."
+        ),
+        "btn_bridge": "Bridge",
+        "btn_exchange": "Exchange",
+        "btn_support": "Soporte",
+        "btn_confirm": "✅ Confirmar – Continuar",
+        "btn_cancel": "❌ Cancelar",
+        "btn_back": "🔙 Volver al Inicio",
+        "btn_new_quote": "🔄 Nueva cotización",
+        "bridge_title": (
+            "*Bridge – Pix → DePix*\n\n"
+            "¿Qué cantidad en *Pix* deseas convertir a *DePix*?\n\n"
+            "_(Responde con un número entre {min} y {max}, ej: `500`)_"
+        ),
+        "exchange_title": (
+            "*Exchange – DePix → L-BTC*\n\n"
+            "¿Qué cantidad en *DePix* deseas cambiar por *L-BTC*?\n\n"
+            "_(Responde con un número entre {min} y {max}, ej: `500`)_"
+        ),
+        "invalid_number": "❌ Por favor, ingresa un número válido (ej: `500`).",
+        "invalid_positive": "❌ Por favor, ingresa un número positivo válido.",
+        "min_amount": "❌ El valor mínimo es `{min:,.2f}`. Ingresa un valor mayor.",
+        "max_amount": "❌ El valor máximo es `{max:,.2f}`. Ingresa un valor menor.",
+        "amount_too_low": (
+            "❌ Valor demasiado bajo después de la tasa mínima de {fee_min} unidad(es).\n"
+            "Por favor, ingresa un valor mayor."
+        ),
+        "quote_error": (
+            "⚠️ No se pudo obtener la cotización del BTC ahora.\n"
+            "Por favor, inténtalo de nuevo en unos momentos."
+        ),
+        "summary_title": "📊 *Resumen del {action}*",
+        "summary_amount": "Valor ingresado: `{amount:.2f}` {from_unit}",
+        "summary_fee": "Tu tasa (0.1% | mín. {fee_min}): `{fee:.2f}` {from_unit}",
+        "summary_net": "Valor transferido: `{net:.2f}` {from_unit}",
+        "summary_rate": "Tasa: _{rate}_",
+        "summary_receive": "Recibirás: ~`{receive:.8f}` {to_unit}",
+        "summary_time": "Tiempo estimado: {time}",
+        "summary_validity": "⏳ Cotización válida por {validity:g} min.{stale}",
+        "summary_instructions": (
+            "Toca *Confirmar* para continuar _(se abre dentro de Telegram)_, "
+            "o *Cancelar* para abortar."
+        ),
+        "stale_note": "\n⚠️ Precio actualizado hace {age:.0f}s (fuente no disponible).",
+        "quote_expired": (
+            "⏰ *Cotización expirada.*\n\n"
+            "Los valores cambian con el mercado. Toca *Nueva cotización* para recalcular."
+        ),
+        "cancelled": "❌ Orden cancelada.\n\nEscribe /start para iniciar una nueva transacción.",
+        "cancelled_cmd": "❌ Cancelado. Escribe /start para iniciar una nueva transacción.",
+        "use_buttons": "Usa los botones del mensaje de arriba o escribe /start para reiniciar.",
+        "start_cmd": "Escribe /start para comenzar.",
+        "stale_button": "Esta sesión ha expirado. Escribe /start para reiniciar.",
+        "unknown": "No entendí eso. Escribe /start para comenzar.",
+        "rate_limit": "⏳ Demasiados mensajes en poco tiempo. Espera un momento e intenta de nuevo.",
+        "rate_limit_alert": "Demasiadas acciones en poco tiempo. Espera un momento.",
+    },
+}
+
+DEFAULT_LANG = "pt"
+
+
+def t(user_data: dict, key: str, **kwargs) -> str:
+    """Retorna a string traduzida para o idioma do usuário."""
+    lang = user_data.get("lang", DEFAULT_LANG)
+    strings = TRANSLATIONS.get(lang, TRANSLATIONS[DEFAULT_LANG])
+    text = strings.get(key, TRANSLATIONS[DEFAULT_LANG].get(key, key))
+    if kwargs:
+        try:
+            return text.format(**kwargs)
+        except (KeyError, IndexError):
+            return text
+    return text
+
+
 # Estados da conversa
-SELECT_ACTION, ENTER_AMOUNT, CONFIRM_ORDER = range(3)
+SELECT_LANGUAGE, SELECT_ACTION, ENTER_AMOUNT, CONFIRM_ORDER = range(4)
 
 # Taxas
 PIX_TO_DEPIX_RATE = 1.0  # 1 Pix = 1 DePix
@@ -127,14 +343,15 @@ async def rate_limiter(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
         if now - _warned.get(user.id, -RATE_LIMIT_WINDOW) >= RATE_LIMIT_WINDOW:
             _warned[user.id] = now
             try:
+                lang = context.user_data.get("lang", DEFAULT_LANG) if context.user_data else DEFAULT_LANG
                 if update.callback_query:
                     await update.callback_query.answer(
-                        "Muitas ações em pouco tempo. Aguarde um momento.",
+                        t({"lang": lang}, "rate_limit_alert"),
                         show_alert=True,
                     )
                 elif update.effective_message:
                     await update.effective_message.reply_text(
-                        "⏳ Muitas mensagens em pouco tempo. Aguarde um momento e tente de novo."
+                        t({"lang": lang}, "rate_limit")
                     )
             except Exception as e:
                 logger.info(f"Falha ao avisar limite de requisições: {e}")
@@ -209,68 +426,87 @@ def calculate_depix_to_lbtc_rate(btc_price_brl: float) -> float:
 
 # ─── Teclados ────────────────────────────────────────────────────────────────
 
-def get_start_keyboard():
-    rows = [
-        [
-            InlineKeyboardButton("Bridge", callback_data="action_bridge"),
-            InlineKeyboardButton("Exchange", callback_data="action_exchange"),
-        ],
-    ]
-    if SUPPORT_URL:
-        rows.append([InlineKeyboardButton("Suporte", url=SUPPORT_URL)])
+def get_language_keyboard():
+    rows = []
+    for code, strings in TRANSLATIONS.items():
+        rows.append([
+            InlineKeyboardButton(
+                f"{strings['lang_flag']} {strings['lang_name']}",
+                callback_data=f"lang_{code}",
+            )
+        ])
     return InlineKeyboardMarkup(rows)
 
 
-def get_confirm_keyboard():
+def get_start_keyboard(user_data: dict):
+    rows = [
+        [
+            InlineKeyboardButton(t(user_data, "btn_bridge"), callback_data="action_bridge"),
+            InlineKeyboardButton(t(user_data, "btn_exchange"), callback_data="action_exchange"),
+        ],
+        [
+            InlineKeyboardButton(
+                f"🌐 {TRANSLATIONS.get(user_data.get('lang', DEFAULT_LANG), TRANSLATIONS[DEFAULT_LANG])['lang_flag']} "
+                f"{TRANSLATIONS.get(user_data.get('lang', DEFAULT_LANG), TRANSLATIONS[DEFAULT_LANG])['lang_name']}",
+                callback_data="change_language",
+            ),
+        ],
+    ]
+    if SUPPORT_URL:
+        rows.append([InlineKeyboardButton(t(user_data, "btn_support"), url=SUPPORT_URL)])
+    return InlineKeyboardMarkup(rows)
+
+
+def get_confirm_keyboard(user_data: dict):
     return InlineKeyboardMarkup([
         [
             InlineKeyboardButton(
-                "✅ Confirmar – Prosseguir",
+                t(user_data, "btn_confirm"),
                 web_app=WebAppInfo(url=GARDEN_URL),
             ),
         ],
         [
-            InlineKeyboardButton("❌ Cancelar", callback_data="confirm_no"),
+            InlineKeyboardButton(t(user_data, "btn_cancel"), callback_data="confirm_no"),
         ],
     ])
 
 
-def get_back_keyboard():
+def get_back_keyboard(user_data: dict):
     return InlineKeyboardMarkup([
-        [InlineKeyboardButton("🔙 Voltar ao Início", callback_data="back_start")]
+        [InlineKeyboardButton(t(user_data, "btn_back"), callback_data="back_start")]
     ])
 
 
-def get_expired_keyboard():
+def get_expired_keyboard(user_data: dict):
     return InlineKeyboardMarkup([
-        [InlineKeyboardButton("🔄 Nova cotação", callback_data="back_start")]
+        [InlineKeyboardButton(t(user_data, "btn_new_quote"), callback_data="back_start")]
     ])
 
 
 # ─── Validação ───────────────────────────────────────────────────────────────
 
-def parse_amount(raw: str):
+def parse_amount(raw: str, user_data: dict):
     """
     Converte o texto em float. Retorna (valor, erro).
     Rejeita texto inválido, nan/inf, valores <= 0 e fora dos limites.
     """
     text = raw.strip().replace(",", ".")
     if not text or len(text) > 20:
-        return None, "❌ Por favor, digite um número válido (ex: `500`)."
+        return None, t(user_data, "invalid_number")
 
     try:
         amount = float(text)
     except ValueError:
-        return None, "❌ Por favor, digite um número válido (ex: `500`)."
+        return None, t(user_data, "invalid_number")
 
     if not math.isfinite(amount) or amount <= 0:
-        return None, "❌ Por favor, digite um número positivo válido."
+        return None, t(user_data, "invalid_positive")
 
     if amount < MIN_AMOUNT:
-        return None, f"❌ O valor mínimo é `{MIN_AMOUNT:,.2f}`. Digite um valor maior."
+        return None, t(user_data, "min_amount", min=MIN_AMOUNT)
 
     if amount > MAX_AMOUNT:
-        return None, f"❌ O valor máximo é `{MAX_AMOUNT:,.2f}`. Digite um valor menor."
+        return None, t(user_data, "max_amount", max=MAX_AMOUNT)
 
     return amount, None
 
@@ -290,10 +526,9 @@ async def expire_quote(message, user_data: dict, quote_id: str) -> None:
     user_data.pop("quote_id", None)
     try:
         await message.edit_text(
-            "⏰ *Cotação expirada.*\n\n"
-            "Os valores mudam com o mercado. Toque em *Nova cotação* para recalcular.",
+            t(user_data, "quote_expired"),
             parse_mode="Markdown",
-            reply_markup=get_expired_keyboard(),
+            reply_markup=get_expired_keyboard(user_data),
         )
     except Exception as e:
         logger.info(f"Não foi possível marcar a cotação como expirada: {e}")
@@ -302,28 +537,82 @@ async def expire_quote(message, user_data: dict, quote_id: str) -> None:
 # ─── Handlers ────────────────────────────────────────────────────────────────
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
-    context.user_data.clear()  # também invalida qualquer cotação pendente
+    """
+    Ponto de entrada: se o usuário já tem idioma salvo, mostra o menu principal.
+    Caso contrário, pede para escolher o idioma.
+    """
+    context.user_data.pop("quote_id", None)
 
+    if context.user_data.get("lang"):
+        return await show_main_menu(update, context)
+
+    return await ask_language(update, context)
+
+
+async def ask_language(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    """Mostra a tela de seleção de idioma."""
     text = (
-        "*O que este bot pode fazer?*\n\n"
-        "*Bridge* Pix → DePix ou *Exchange* DePix → L-BTC na menor taxa possível "
-        "— sem depender de ninguém.\n\n"
-        "Nosso código é aberto. Clique em *Bridge* ou *Exchange* para saber mais e começar.\n\n"
-        "Se precisar de ajuda, entre em contato com o *Suporte*."
+        "🌐 *Choose your language* / *Escolha seu idioma* / *Elige tu idioma*\n\n"
+        "Please select your preferred language.\n"
+        "Por favor, selecione seu idioma preferido.\n"
+        "Por favor, selecciona tu idioma preferido."
     )
 
     if update.message:
         await update.message.reply_text(
             text,
             parse_mode="Markdown",
-            reply_markup=get_start_keyboard(),
+            reply_markup=get_language_keyboard(),
         )
     elif update.callback_query:
         await update.callback_query.answer()
         await update.callback_query.edit_message_text(
             text,
             parse_mode="Markdown",
-            reply_markup=get_start_keyboard(),
+            reply_markup=get_language_keyboard(),
+        )
+
+    return SELECT_LANGUAGE
+
+
+async def select_language(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    """Salva o idioma escolhido e mostra o menu principal."""
+    query = update.callback_query
+    await query.answer()
+
+    lang = query.data.replace("lang_", "")
+    if lang not in TRANSLATIONS:
+        lang = DEFAULT_LANG
+
+    context.user_data["lang"] = lang
+
+    return await show_main_menu(update, context)
+
+
+async def change_language(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    """Permite trocar o idioma a qualquer momento."""
+    query = update.callback_query
+    await query.answer()
+    return await ask_language(update, context)
+
+
+async def show_main_menu(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    """Mostra o menu principal no idioma do usuário."""
+    text = t(context.user_data, "start_text")
+    keyboard = get_start_keyboard(context.user_data)
+
+    if update.message:
+        await update.message.reply_text(
+            text,
+            parse_mode="Markdown",
+            reply_markup=keyboard,
+        )
+    elif update.callback_query:
+        await update.callback_query.answer()
+        await update.callback_query.edit_message_text(
+            text,
+            parse_mode="Markdown",
+            reply_markup=keyboard,
         )
 
     return SELECT_ACTION
@@ -334,28 +623,35 @@ async def select_action(update: Update, context: ContextTypes.DEFAULT_TYPE) -> i
     await query.answer()
 
     if query.data == "back_start":
-        return await start(update, context)
+        return await show_main_menu(update, context)
+
+    if query.data == "change_language":
+        return await change_language(update, context)
 
     action = query.data.replace("action_", "")
     context.user_data["action"] = action
 
     if action == "bridge":
         await query.edit_message_text(
-            "*Bridge – Pix → DePix*\n\n"
-            "Qual valor em *Pix* você deseja converter para *DePix*?\n\n"
-            f"_(Responda com um número entre {MIN_AMOUNT:,.0f} e {MAX_AMOUNT:,.0f}, "
-            "ex: `500`)_",
+            t(
+                context.user_data,
+                "bridge_title",
+                min=f"{MIN_AMOUNT:,.0f}",
+                max=f"{MAX_AMOUNT:,.0f}",
+            ),
             parse_mode="Markdown",
-            reply_markup=get_back_keyboard(),
+            reply_markup=get_back_keyboard(context.user_data),
         )
     else:
         await query.edit_message_text(
-            "*Exchange – DePix → L-BTC*\n\n"
-            "Qual valor em *DePix* você deseja trocar por *L-BTC*?\n\n"
-            f"_(Responda com um número entre {MIN_AMOUNT:,.0f} e {MAX_AMOUNT:,.0f}, "
-            "ex: `500`)_",
+            t(
+                context.user_data,
+                "exchange_title",
+                min=f"{MIN_AMOUNT:,.0f}",
+                max=f"{MAX_AMOUNT:,.0f}",
+            ),
             parse_mode="Markdown",
-            reply_markup=get_back_keyboard(),
+            reply_markup=get_back_keyboard(context.user_data),
         )
 
     return ENTER_AMOUNT
@@ -364,12 +660,12 @@ async def select_action(update: Update, context: ContextTypes.DEFAULT_TYPE) -> i
 async def enter_amount(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     action = context.user_data.get("action", "bridge")
 
-    amount, error = parse_amount(update.message.text)
+    amount, error = parse_amount(update.message.text, context.user_data)
     if error:
         await update.message.reply_text(
             error,
             parse_mode="Markdown",
-            reply_markup=get_back_keyboard(),
+            reply_markup=get_back_keyboard(context.user_data),
         )
         return ENTER_AMOUNT
 
@@ -379,9 +675,8 @@ async def enter_amount(update: Update, context: ContextTypes.DEFAULT_TYPE) -> in
 
     if amount_after_fee <= 0:
         await update.message.reply_text(
-            f"❌ Valor muito baixo após a taxa mínima de {FEE_MIN} unidade(s).\n"
-            "Por favor, digite um valor maior.",
-            reply_markup=get_back_keyboard(),
+            t(context.user_data, "amount_too_low", fee_min=FEE_MIN),
+            reply_markup=get_back_keyboard(context.user_data),
         )
         return ENTER_AMOUNT
 
@@ -402,9 +697,8 @@ async def enter_amount(update: Update, context: ContextTypes.DEFAULT_TYPE) -> in
         if result is None:
             # Sem preço confiável: não inventamos cotação.
             await update.message.reply_text(
-                "⚠️ Não foi possível obter a cotação do BTC agora.\n"
-                "Por favor, tente novamente em instantes.",
-                reply_markup=get_back_keyboard(),
+                t(context.user_data, "quote_error"),
+                reply_markup=get_back_keyboard(context.user_data),
             )
             return ENTER_AMOUNT
 
@@ -414,7 +708,7 @@ async def enter_amount(update: Update, context: ContextTypes.DEFAULT_TYPE) -> in
         action_label = "Exchange"
         est_time = "~32 min"
         if price_age > PRICE_CACHE_TTL:
-            stale_note = f"\n⚠️ Preço atualizado há {price_age:.0f}s (fonte indisponível)."
+            stale_note = t(context.user_data, "stale_note", age=price_age)
 
     you_receive = round(amount_after_fee * rate, 8)
 
@@ -434,18 +728,17 @@ async def enter_amount(update: Update, context: ContextTypes.DEFAULT_TYPE) -> in
 
     validity_min = QUOTE_VALIDITY_SECONDS / 60
     sent = await update.message.reply_text(
-        f"📊 *Resumo do {action_label}*\n\n"
-        f"Valor informado: `{amount:.2f}` {from_unit}\n"
-        f"Sua taxa (0.1% | mín. {FEE_MIN}): `{fee:.2f}` {from_unit}\n"
-        f"Valor repassado: `{amount_after_fee:.2f}` {from_unit}\n"
-        f"Taxa: _{rate_str}_\n\n"
-        f"Você receberá: ~`{you_receive:.8f}` {to_unit}\n"
-        f"Tempo estimado: {est_time}\n"
-        f"⏳ Cotação válida por {validity_min:g} min.{stale_note}\n\n"
-        f"Toque em *Confirmar* para prosseguir _(abre dentro do Telegram)_, "
-        f"ou *Cancelar* para abortar.",
+        t(context.user_data, "summary_title", action=action_label) + "\n\n"
+        + t(context.user_data, "summary_amount", amount=amount, from_unit=from_unit) + "\n"
+        + t(context.user_data, "summary_fee", fee=fee, fee_min=FEE_MIN, from_unit=from_unit) + "\n"
+        + t(context.user_data, "summary_net", net=amount_after_fee, from_unit=from_unit) + "\n"
+        + t(context.user_data, "summary_rate", rate=rate_str) + "\n\n"
+        + t(context.user_data, "summary_receive", receive=you_receive, to_unit=to_unit) + "\n"
+        + t(context.user_data, "summary_time", time=est_time) + "\n"
+        + t(context.user_data, "summary_validity", validity=validity_min, stale=stale_note) + "\n\n"
+        + t(context.user_data, "summary_instructions"),
         parse_mode="Markdown",
-        reply_markup=get_confirm_keyboard(),
+        reply_markup=get_confirm_keyboard(context.user_data),
     )
 
     # Agenda a expiração (application.create_task mantém a referência da tarefa)
@@ -459,17 +752,13 @@ async def confirm_cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     query = update.callback_query
     await query.answer()
     context.user_data.pop("quote_id", None)
-    await query.edit_message_text(
-        "❌ Ordem cancelada.\n\nDigite /start para iniciar uma nova transação."
-    )
+    await query.edit_message_text(t(context.user_data, "cancelled"))
     return ConversationHandler.END
 
 
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     context.user_data.pop("quote_id", None)
-    await update.message.reply_text(
-        "❌ Cancelado. Digite /start para iniciar uma nova transação."
-    )
+    await update.message.reply_text(t(context.user_data, "cancelled_cmd"))
     return ConversationHandler.END
 
 
@@ -478,29 +767,25 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 def make_use_buttons_handler(state: int):
     """Resposta para texto digitado onde o bot espera um clique em botão."""
     async def use_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
-        await update.message.reply_text(
-            "Use os botões da mensagem acima ou digite /start para recomeçar."
-        )
+        await update.message.reply_text(t(context.user_data, "use_buttons"))
         return state
     return use_buttons
 
 
 async def stray_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Texto fora de qualquer conversa ativa."""
-    await update.message.reply_text("Digite /start para começar.")
+    await update.message.reply_text(t(context.user_data, "start_cmd"))
 
 
 async def stale_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Botão antigo cuja conversa já terminou (timeout, cancelamento, etc.)."""
     await update.callback_query.answer(
-        "Esta sessão expirou. Digite /start para recomeçar.", show_alert=True
+        t(context.user_data, "stale_button"), show_alert=True
     )
 
 
 async def unknown_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(
-        "Não entendi isso. Digite /start para começar."
-    )
+    await update.message.reply_text(t(context.user_data, "unknown"))
 
 
 # ─── Erros e inicialização ───────────────────────────────────────────────────
@@ -582,9 +867,13 @@ def main():
             CallbackQueryHandler(start, pattern="^back_start$"),
         ],
         states={
+            SELECT_LANGUAGE: [
+                CallbackQueryHandler(select_language, pattern="^lang_"),
+            ],
             SELECT_ACTION: [
                 CallbackQueryHandler(select_action, pattern="^action_"),
                 CallbackQueryHandler(select_action, pattern="^back_start$"),
+                CallbackQueryHandler(change_language, pattern="^change_language$"),
                 MessageHandler(
                     filters.TEXT & ~filters.COMMAND,
                     make_use_buttons_handler(SELECT_ACTION),
